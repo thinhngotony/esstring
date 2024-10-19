@@ -6,6 +6,8 @@ import (
 
 	"github.com/gookit/goutil"
 	"github.com/iancoleman/strcase"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 // ToSnakeCase converts an interface{} to a snake_case string.
@@ -36,7 +38,7 @@ func ToPascalCase(input interface{}) (resp string) {
 	for i, part := range parts {
 		if len(part) > 0 {
 			// Capitalize the first letter of each part
-			parts[i] = strings.Title(part)
+			parts[i] = cases.Title(language.English).String(part)
 		}
 	}
 
